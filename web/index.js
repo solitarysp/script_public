@@ -19,3 +19,12 @@ if (HOST === "dash.cloudflare.com") {
             document.body.appendChild(script);
         });
 }
+if (HOST === "chat.openai.com") {
+    fetch('https://raw.githubusercontent.com/solitarysp/script_public/main/web/chat_gpt/js/index.js')
+        .then((response) => response.text())
+        .then((data) => {
+            let script = document.createElement('script');
+            script.textContent = data;
+            document.body.appendChild(script);
+        });
+}
