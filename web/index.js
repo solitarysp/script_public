@@ -1,5 +1,5 @@
 const HOST = window.location.host;
-
+console.log(HOST)
 
 if (HOST === "shell.cloud.google.com") {
     fetch('https://raw.githubusercontent.com/solitarysp/script_public/main/web/google_shell/js/shell_script.js')
