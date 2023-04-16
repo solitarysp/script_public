@@ -1,4 +1,4 @@
-console.log("Run : https://raw.githubusercontent.com/solitarysp/google_shell_tool/main/js/shell_script.js")
+console.log("Run : https://raw.githubusercontent.com/solitarysp/script_public/main/google_shell/js/shell_script.js")
 setInterval(bypassStartShell, 2000);
 
 async function bypassStartShell() {

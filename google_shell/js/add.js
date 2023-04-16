@@ -1,4 +1,4 @@
-fetch('https://raw.githubusercontent.com/solitarysp/google_shell_tool/main/js/shell_script.js')
+fetch('https://raw.githubusercontent.com/solitarysp/script_public/main/google_shell/js/shell_script.js')
 .then((response) => response.text())
 .then((data) => {
   let script = document.createElement('script');
