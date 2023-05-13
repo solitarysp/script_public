@@ -1,6 +1,6 @@
 
 
-setInterval(elementSelectFree, 900000);
+setInterval(elementSelectFree, 5000);
 
 function elementSelectFree() {
     try {
