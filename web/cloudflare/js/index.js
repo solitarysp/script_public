@@ -3,14 +3,11 @@ setInterval(elementSelectFree, 2000);
 function elementSelectFree() {
     try {
         if (document.location.href.indexOf('select-plan') > 0) {
-            const h3s = document.getElementsByTagName("h3");
-            for (let i = 0; i < h3s.length; i++) {
-                if (h3s[i].textContent.trim() == 'Free') {
-                    h3s[i].click();
-                }
-            }
-            const spans = document.getElementsByTagName("span");
+            var spans = document.getElementsByTagName("span");
             for (let i = 0; i < spans.length; i++) {
+                if (spans[i].textContent.trim() == 'Free') {
+                    spans[i].click();
+                }
                 if (spans[i].textContent.trim() == 'Continue') {
                     spans[i].click();
                 }
