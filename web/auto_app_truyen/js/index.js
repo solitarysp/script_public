@@ -1,9 +1,20 @@
 setInterval(elementSelectFree, 1000);
 
 function elementSelectFree() {
+    const curUrl = document.location.href;
+
     try {
         if (document.location.href.indexOf('/app-content/privacy-policy?source=dashboard') > 0) {
-            document.getElementsByClassName('mdc-text-field__input')[0].value = 'https://lethanh98.com/ ';
+            if (checkTonTaiContent("span", "Chính sách quyền riêng tư")) {
+                const data = document.getElementsByClassName('mdc-text-field__input')[0].value;
+                if (!data) {
+                    document.getElementsByClassName('mdc-text-field__input')[0].value = 'https://lethanh98.com/ ';
+                    ClickNext("div", "Lưu");
+                }
+                setTimeout(function () {
+                    document.location.href = replaceAll(curUrl, 'app-content/privacy-policy?source=dashboard', 'app-content/testing-credentials?source=dashboard')
+                }, 2000);
+            }
         }
     } catch (e) {
 
@@ -11,6 +22,21 @@ function elementSelectFree() {
     try {
         if (document.location.href.indexOf('/app-content/testing-credentials?source=dashboard') > 0) {
             document.getElementsByClassName('mdc-radio__native-control')[0].click()
+            ClickNext("div", "Lưu");
+            setTimeout(function () {
+                document.location.href = replaceAll(curUrl, 'app-content/testing-credentials?source=dashboard', 'app-content/ads-declaration?source=dashboard')
+            }, 2000);
+        }
+    } catch (e) {
+
+    }
+    try {
+        if (document.location.href.indexOf('/app-content/ads-declaration?source=dashboard') > 0) {
+            document.getElementsByClassName('mdc-radio__native-control')[0].click()
+            ClickNext("div", "Lưu");
+            setTimeout(function () {
+                document.location.href = replaceAll(curUrl, 'app-content/ads-declaration?source=dashboard', 'app-content/ads-declaration?source=dashboard')
+            }, 2000);
         }
     } catch (e) {
 
@@ -123,4 +149,7 @@ function checkTonTaiContent(tagName, content) {
         }
     }
     return false;
+}
+function replaceAll(data, keyWorkReplace, wordReplace) {
+    return data.split(keyWorkReplace).join(wordReplace);
 }
