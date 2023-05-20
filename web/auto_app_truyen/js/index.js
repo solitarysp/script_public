@@ -42,9 +42,20 @@ function elementSelectFree() {
 
     }
     try {
-        if (document.location.href.indexOf('/app-content/content-rating-iarc-questionnaire?source=dashboard') > 0) {
+        if (document.location.href.indexOf('/app-content/content-rating-overview?source=dashboard') > 0) {
             document.getElementsByClassName('mdc-text-field__input')[0].value = 'lethanh9398@gmail.com ';
             document.getElementsByClassName('mdc-radio__native-control')[2].click()
+        }
+    } catch (e) {
+
+    }
+    try {
+        if (document.location.href.indexOf('/app-content/content-rating-iarc-questionnaire?source=dashboard') > 0) {
+            const data = document.getElementsByClassName('mdc-text-field__input')[0].value;
+            if(!data){
+                document.getElementsByClassName('mdc-text-field__input')[0].value = 'lethanh9398@gmail.com ';
+                document.getElementsByClassName('mdc-radio__native-control')[2].click()
+            }
         }
     } catch (e) {
 
@@ -57,6 +68,16 @@ function elementSelectFree() {
                     document.getElementsByClassName('mdc-radio__native-control')[i].click()
                 }
             }
+            setTimeout(function () {
+                ClickNext("div", "Lưu");
+            }, 2000);
+            setTimeout(function () {
+                ClickNext("div", "Tiếp theo")
+            }, 2000);
+            setTimeout(function () {
+                ClickNext("div", "Lưu");
+            }, 2000);
+
         }
     } catch (e) {
 
@@ -69,7 +90,21 @@ function elementSelectFree() {
                     if (!element.checked) {
                         element.click();
                     }
-                    ClickNext("div", "Tiếp theo")
+                    setTimeout(function () {
+                        ClickNext("div", "Tiếp theo")
+                    }, 2000);
+                } catch (e) {
+                }
+            }
+            if (checkTonTaiContent("span", "Mức phân loại nội dung")) {
+                try {
+                    var element = document.getElementsByClassName('mdc-checkbox__native-control')[5]
+                    if (!element.checked) {
+                        element.click();
+                    }
+                    setTimeout(function () {
+                        ClickNext("div", "Tiếp theo")
+                    }, 2000);
                 } catch (e) {
                 }
             }
@@ -77,12 +112,18 @@ function elementSelectFree() {
             if (checkTonTaiContent("span", "Sự hiện diện trong Cửa hàng Play")) {
                 try {
                     document.getElementsByClassName('mdc-radio__native-control')[1].click()
+                    setTimeout(function () {
+                        ClickNext("div", "Tiếp theo");
+                    }, 2000);
                 } catch (e) {
                 }
             }
             if (checkTonTaiContent("span", "Dưới đây là những thông tin bạn đã cho chúng tôi biết")) {
                 try {
-                    ClickNext("div", "Lưu")
+                    setTimeout(function () {
+                        ClickNext("div", "Lưu")
+                        document.location.href = replaceAll(curUrl, 'app-content/target-audience-content?source=dashboard', 'app-content/news-declaration?source=dashboard')
+                    }, 2000);
                 } catch (e) {
                 }
             }
@@ -94,7 +135,11 @@ function elementSelectFree() {
         if (document.location.href.indexOf('/app-content/news-declaration?source=dashboard') > 0) {
             document.getElementsByClassName('mdc-radio__native-control')[0].click()
             try {
-                ClickNext("div", "Lưu")
+                  setTimeout(function () {
+                      ClickNext("div", "Lưu");
+                      document.location.href = replaceAll(curUrl, 'app-content/news-declaration?source=dashboard', 'app-content/regulated-health-apps?source=dashboard')
+                }, 2000);
+
             } catch (e) {
             }
         }
@@ -107,17 +152,31 @@ function elementSelectFree() {
             if (!element.checked) {
                 element.click();
             }
-            ClickNext("div", "Lưu")
+            setTimeout(function () {
+                ClickNext("div", "Lưu");
+                document.location.href = replaceAll(curUrl, 'app-content/regulated-health-apps?source=dashboard', 'app-content/data-privacy-security?source=dashboard')
+            }, 2000);
         }
     } catch (e) {
 
     }
     try {
         if (document.location.href.indexOf('/app-content/data-privacy-security?source=dashboard') > 0) {
-            ClickNext("span", "Tiếp theo")
-            document.getElementsByClassName('mdc-radio__native-control')[4].click();
-            ClickNext("span", "Tiếp theo")
-            ClickNext("div", "Lưu")
+            setTimeout(function () {
+                ClickNext("span", "Tiếp theo")
+            }, 1000);
+            setTimeout(function () {
+                document.getElementsByClassName('mdc-radio__native-control')[4].click();
+            }, 2000);
+            setTimeout(function () {
+                ClickNext("span", "Tiếp theo")
+            }, 3000);
+            setTimeout(function () {
+                ClickNext("div", "Lưu")
+            }, 4000);
+            setTimeout(function () {
+                document.location.href = replaceAll(curUrl, 'app-content/data-privacy-security?source=dashboard', 'app-content/government-apps?source=dashboard')
+            }, 5000);
         }
     } catch (e) {
 
@@ -125,7 +184,9 @@ function elementSelectFree() {
     try {
         if (document.location.href.indexOf('/app-content/government-apps?source=dashboard') > 0) {
             document.getElementsByClassName('mdc-radio__native-control')[1].click();
-            ClickNext("div", "Lưu");
+            setTimeout(function () {
+                ClickNext("div", "Lưu")
+            }, 1000);
         }
     } catch (e) {
 
