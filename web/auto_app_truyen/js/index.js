@@ -9,11 +9,13 @@ function elementSelectFree() {
                 const data = document.getElementsByClassName('mdc-text-field__input')[0].value;
                 if (!data) {
                     document.getElementsByClassName('mdc-text-field__input')[0].value = 'https://lethanh98.com/ ';
-                    ClickNext("div", "Lưu");
                 }
-                setTimeout(function () {
-                    document.location.href = replaceAll(curUrl, 'app-content/privacy-policy?source=dashboard', 'app-content/testing-credentials?source=dashboard')
-                }, 2000);
+                if(data==='https://lethanh98.com/'){
+                    ClickNext("div", "Lưu");
+                    setTimeout(function () {
+                        document.location.href = replaceAll(curUrl, 'app-content/privacy-policy?source=dashboard', 'app-content/testing-credentials?source=dashboard')
+                    }, 2000);
+                }
             }
         }
     } catch (e) {
@@ -35,7 +37,7 @@ function elementSelectFree() {
             document.getElementsByClassName('mdc-radio__native-control')[0].click()
             ClickNext("div", "Lưu");
             setTimeout(function () {
-                document.location.href = replaceAll(curUrl, 'app-content/ads-declaration?source=dashboard', 'app-content/ads-declaration?source=dashboard')
+                document.location.href = replaceAll(curUrl, 'app-content/ads-declaration?source=dashboard', 'app-content/content-rating-overview?source=dashboard')
             }, 2000);
         }
     } catch (e) {
@@ -43,6 +45,8 @@ function elementSelectFree() {
     }
     try {
         if (document.location.href.indexOf('/app-content/content-rating-overview?source=dashboard') > 0) {
+            ClickNext("div", "Bắt đầu trả lời bảng câu hỏi");
+
             document.getElementsByClassName('mdc-text-field__input')[0].value = 'lethanh9398@gmail.com ';
             document.getElementsByClassName('mdc-radio__native-control')[2].click()
         }
