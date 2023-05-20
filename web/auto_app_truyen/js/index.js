@@ -209,6 +209,9 @@ function elementSelectFree() {
             setTimeout(function () {
                 ClickNext("div", "Lưu")
             }, 1000);
+            setTimeout(function () {
+                document.location.href = replaceAll(curUrl, 'app-content/government-apps?source=dashboard', 'store-settings')
+            }, 2000);
         }
     } catch (e) {
 
