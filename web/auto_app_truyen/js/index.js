@@ -10,7 +10,7 @@ function elementSelectFree() {
                 if (!data) {
                     document.getElementsByClassName('mdc-text-field__input')[0].value = 'https://lethanh98.com/ ';
                 }
-                if(data==='https://lethanh98.com/'){
+                if (data === 'https://lethanh98.com/') {
                     ClickNext("div", "Lưu");
                     setTimeout(function () {
                         document.location.href = replaceAll(curUrl, 'app-content/privacy-policy?source=dashboard', 'app-content/testing-credentials?source=dashboard')
@@ -55,33 +55,51 @@ function elementSelectFree() {
     }
     try {
         if (document.location.href.indexOf('/app-content/content-rating-iarc-questionnaire?source=dashboard') > 0) {
-            const data = document.getElementsByClassName('mdc-text-field__input')[0].value;
-            if(!data){
-                document.getElementsByClassName('mdc-text-field__input')[0].value = 'lethanh9398@gmail.com ';
-                document.getElementsByClassName('mdc-radio__native-control')[2].click()
+            if (checkTonTaiContent("div", "Địa chỉ email")) {
+                const data = document.getElementsByClassName('mdc-text-field__input')[0];
+                if (data.value.length < 1) {
+                    data.value = 'lethanh9398@gmail.com ';
+                    document.getElementsByClassName('mdc-radio__native-control')[2].click()
+                }
+                if (data.value === "lethanh9398@gmail.com") {
+                    setTimeout(function () {
+                        ClickNext("div", "Tiếp theo")
+                    }, 2000);
+                }
+            }
+        }
+    } catch (e) {
+
+    }
+
+    try {
+        if (document.location.href.indexOf('/app-content/content-rating-iarc-questionnaire?source=dashboard') > 0) {
+            if (checkTonTaiContent("span", "Ứng dụng đã tải xuống")) {
+                const inputs = document.getElementsByClassName('mdc-radio__native-control')
+                for (let i = 0; i < inputs.length; i++) {
+                    if (i % 2 > 0) {
+                        document.getElementsByClassName('mdc-radio__native-control')[i].click()
+                    }
+                }
+                setTimeout(function () {
+                    ClickNext("div", "Lưu");
+                }, 2000);
+                setTimeout(function () {
+                    ClickNext("div", "Tiếp theo")
+                }, 4000);
+                setTimeout(function () {
+                    ClickNext("div", "Lưu");
+                }, 6000);
             }
         }
     } catch (e) {
 
     }
     try {
-        if (document.location.href.indexOf('/app-content/content-rating-iarc-questionnaire?source=dashboard') > 0) {
-            const inputs = document.getElementsByClassName('mdc-radio__native-control')
-            for (let i = 0; i < inputs.length; i++) {
-                if (i % 2 > 0) {
-                    document.getElementsByClassName('mdc-radio__native-control')[i].click()
-                }
+        if (document.location.href.indexOf('/app-content/content-rating-overview?source=dashboard') > 0) {
+            if (checkTonTaiContent("span", "Mức phân loại hiện tại")) {
+                document.location.href = replaceAll(curUrl, 'app-content/content-rating-overview?source=dashboard', 'app-content/target-audience-content?source=dashboard')
             }
-            setTimeout(function () {
-                ClickNext("div", "Lưu");
-            }, 2000);
-            setTimeout(function () {
-                ClickNext("div", "Tiếp theo")
-            }, 2000);
-            setTimeout(function () {
-                ClickNext("div", "Lưu");
-            }, 2000);
-
         }
     } catch (e) {
 
@@ -139,9 +157,9 @@ function elementSelectFree() {
         if (document.location.href.indexOf('/app-content/news-declaration?source=dashboard') > 0) {
             document.getElementsByClassName('mdc-radio__native-control')[0].click()
             try {
-                  setTimeout(function () {
-                      ClickNext("div", "Lưu");
-                      document.location.href = replaceAll(curUrl, 'app-content/news-declaration?source=dashboard', 'app-content/regulated-health-apps?source=dashboard')
+                setTimeout(function () {
+                    ClickNext("div", "Lưu");
+                    document.location.href = replaceAll(curUrl, 'app-content/news-declaration?source=dashboard', 'app-content/regulated-health-apps?source=dashboard')
                 }, 2000);
 
             } catch (e) {
@@ -215,6 +233,7 @@ function checkTonTaiContent(tagName, content) {
     }
     return false;
 }
+
 function replaceAll(data, keyWorkReplace, wordReplace) {
     return data.split(keyWorkReplace).join(wordReplace);
 }
