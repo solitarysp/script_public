@@ -58,7 +58,7 @@ function elementSelectFree() {
             if (checkTonTaiContent("div", "Địa chỉ email")) {
                 const data = document.getElementsByClassName('mdc-text-field__input')[0];
                 if (data.value.length < 1) {
-                    data.value = 'lethanh9398@gmail.com ';
+                    data.value = 'lethanh9398@gmail.com1';
                     document.getElementsByClassName('mdc-radio__native-control')[2].click()
                 }
                 if (data.value === "lethanh9398@gmail.com") {
